@@ -1,0 +1,19 @@
+.hero {
+  background: $primary-gradient;
+  text-align: center;
+  .title {
+    color: white;
+  }
+  .button.cta {
+    margin-top: 2rem;
+    background: rgba(#333, 0.5);
+    border: none;
+    padding: 1rem 3rem;
+    color: white;
+    box-shadow: 2px 2px 4px 0px rgba(#333, 0.25), 0px 0px 1rem rgba(#333, 0.05);
+    transition: transform 200ms;
+    &:hover {
+      transform: scale(1.06);
+    }
+  }
+}

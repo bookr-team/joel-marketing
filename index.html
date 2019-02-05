@@ -5,15 +5,166 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bookr</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Aleo:400,400i,700|Open+Sans:700"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="build/main.css" />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.7.1/js/all.js"
+      integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <section class="section">
-      <div class="container">
-        <h1>Bookr</h1>
-        <p>Welcome.</p>
+    <header>
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="container">
+          <div class="navbar-brand">
+            <a href="#" class="navbar-item">
+              <img src="images/bookr-logotype.svg" alt="Bookr logo"
+            /></a>
+            <span class="navbar-burger burger" data-target="nav-menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+          <div id="nav-menu" class="navbar-menu">
+            <div class="navbar-end">
+              <a href="#" class="navbar-item">Some Link</a>
+              <a href="#how-it-works" class="navbar-item">How it Works</a>
+              <a href="#" class="navbar-item">Blog</a>
+              <div class="buttons">
+                <a href="#" class="button">Login</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section class="hero is-medium">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title is-size-1">
+            Your source for all things textbook.
+          </h1>
+          <div class="cta-div">
+            <a href="#" class="button cta is-size-3">Sign Up</a>
+          </div>
+        </div>
       </div>
     </section>
+
+    <section id="how-it-works" class="how-it-works section">
+      <div class="container">
+        <h1 class="title">How it works</h1>
+        <div class="columns is-desktop">
+          <div class="column">
+            <div class="notification">
+              <h1 class="title is-size-4">Buy Textbooks</h1>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
+                debitis blanditiis, provident ab nemo voluptates.
+              </p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="notification">
+              <h1 class="title is-size-4">Review Books</h1>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+                quisquam est, suscipit, sequi vitae tenetur omnis quis
+                praesentium alias qui quidem eligendi.
+              </p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="notification">
+              <h1 class="title is-size-4">Compare Prices</h1>
+              <p>
+                Lorem ipsum doslor sit amet consectetur adipisicing elit.
+                Possimus veniam atque quod laudantium a tempore deserunt error
+                voluptatem.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured-books section">
+      <div class="container">
+        <h1 class="title">Featured Books</h1>
+        <div class="notification">
+          {books here}
+        </div>
+      </div>
+    </section>
+
+    <section class="section testimonials">
+      <div class="container">
+        <h1 class="title">What people are saying</h1>
+        <div class="notification">
+          {testimonials slideshow here}
+        </div>
+      </div>
+    </section>
+
+    <footer class="section">
+      <div class="container">
+        <img
+          src="images/bookr-logotype-altbg.svg"
+          class="footer-logo"
+          alt="Bookr logo"
+        />
+        <p class="address">
+          921 Crescent Ct.<br />
+          San Ramon, CA 94582
+        </p>
+        <p class="email">hello@bookr.com</p>
+        <p class="phone">(800) 883-1943</p>
+        <div class="social">
+          <p>
+            <a href="#">
+              <i class="fab fa-twitter"></i>
+              Twitter
+            </a>
+          </p>
+          <p>
+            <a href="#">
+              <i class="fab fa-facebook"></i>
+              Facebook
+            </a>
+          </p>
+          <p>
+            <a href="#">
+              <i class="fab fa-instagram"></i>
+              Instagram
+            </a>
+          </p>
+        </div>
+        <div class="newsletter-signup">
+          <h2 class="title is-size-4">Get on our list!</h2>
+          <p>
+            Subscribe to stay up-to-date with occasional news and special
+            offers. Unsubscribe at any time.
+          </p>
+          <form action="">
+            <label for="">
+              <input type="email" class="input" placeholder="you@yours.com" />
+            </label>
+            <button class="button">Subscribe</button>
+          </form>
+        </div>
+        <p class="copyright">
+          Copyright 2019 Bookr, Inc.
+        </p>
+      </div>
+    </footer>
+
     <script type="text/javascript" src="build/main.js"></script>
   </body>
 </html>

@@ -1,0 +1,16 @@
+$primary-gradient: linear-gradient(
+  135deg,
+  $bookr-primary 0%,
+  $bookr-primary-alt 100%
+);
+$orange-gradient: linear-gradient(
+  135deg,
+  $bookr-orange 0%,
+  $bookr-orange-alt 100%
+);
+$yellow-gradient: linear-gradient(
+  135deg,
+  $bookr-yellow 0%,
+  $bookr-yellow-alt 100%
+);
+$grey-gradient: linear-gradient(135deg, $bookr-grey 40%, $bookr-grey-alt 100%);
