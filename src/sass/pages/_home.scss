@@ -6,18 +6,14 @@
   }
   .button.cta {
     margin-top: 2rem;
-    background: white;
+    background: rgba(#333, 0.5);
     border: none;
     padding: 1rem 3rem;
-    color: $bookr-primary;
-    font-family: $family-secondary;
-    font-weight: bold;
-    box-shadow: 2px 2px 4px 0px rgba(black, 0.05), 0px 0px 20px rgba(#333, 0.25);
-  }
-}
-
-.featured-books {
-  .notification {
-    box-shadow: $default-shawdow;
+    color: white;
+    box-shadow: 2px 2px 4px 0px rgba(#333, 0.25), 0px 0px 1rem rgba(#333, 0.05);
+    transition: transform 200ms;
+    &:hover {
+      transform: scale(1.06);
+    }
   }
 }
