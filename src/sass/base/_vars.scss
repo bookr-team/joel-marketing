@@ -1,30 +1,21 @@
 $bookr-primary: #53bdad;
-$bookr-primary-gradient: #8be0d6;
+$bookr-primary-alt: #8be0d6;
 $bookr-orange: #fc5e32;
-$bookr-orange-gradient: #fe9861;
+$bookr-orange-alt: #fe9861;
 $bookr-yellow: #f7be4d;
+$bookr-yellow-alt: #fce184;
 $bookr-grey: #dfdce3;
+$bookr-grey-alt: #f1f0f3;
 
 $bookr-heading-font: 'Aleo', serif;
 
-$primary-gradient: linear-gradient(
-  135deg,
-  $bookr-primary 40%,
-  $bookr-primary-gradient 100%
-);
-
-$primary-button-bg: linear-gradient(
-  135deg,
-  $bookr-orange 40%,
-  $bookr-orange-gradient 100%
-);
-
-$default-shawdow: 2px 2px 4px 0px rgba(black, 0.05),
-  0px 0px 20px rgba($bookr-grey, 0.25);
+$default-shadow: 0.1rem 0.1rem 0.4rem 0 rgba(#333, 0.15),
+  0 0 1rem rgba(#333, 0.15);
 
 // bulma vars
+$section-padding: 3rem 1.5rem 2rem;
 
-// $grey-dark: #333;
+$grey-dark: #333;
 $family-sans-serif: 'Open Sans', sans-serif;
 $family-secondary: 'Aleo', serif;
 $primary: $bookr-primary;
