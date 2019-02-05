@@ -1,21 +1,39 @@
-// Set your brand colors
-// $purple: #8a4d76;
-// $pink: #fa7c91;
-// $brown: #757763;
-// $beige-light: #d0d1cd;
-// $beige-lighter: #eff0eb;
+$bookr-primary: #53bdad;
+$bookr-primary-gradient: #8be0d6;
+$bookr-orange: #fc5e32;
+$bookr-orange-gradient: #fe9861;
+$bookr-yellow: #f7be4d;
+$bookr-grey: #dfdce3;
 
-// Update Bulma's global variables
+$bookr-heading-font: 'Aleo', serif;
+
+$primary-gradient: linear-gradient(
+  135deg,
+  $bookr-primary 40%,
+  $bookr-primary-gradient 100%
+);
+
+$primary-button-bg: linear-gradient(
+  135deg,
+  $bookr-orange 40%,
+  $bookr-orange-gradient 100%
+);
+
+// bulma vars
+
+// $grey-dark: #333;
 $family-sans-serif: 'Open Sans', sans-serif;
-// $grey-dark: $brown;
-// $grey-light: $beige-light;
-// $primary: $purple;
-// $link: $pink;
-// $widescreen-enabled: false;
-// $fullhd-enabled: false;
+$family-secondary: 'Aleo', serif;
+$primary: $bookr-primary;
 
-// Update some of Bulma's component variables
-// $body-background-color: white;
-// $control-border-width: 2px;
-// $input-border-color: transparent;
-// $input-shadow: none;
+// breakpoints
+$gap: 32px;
+$tablet: 568px;
+$desktop: 896px + (2 * $gap);
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+
+// navbar
+$navbar-breakpoint: 660px;
+$navbar-height: 5rem;
+$navbar-item-hover-background-color: white;
