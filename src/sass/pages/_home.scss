@@ -1,6 +1,23 @@
 .hero {
   background: $primary-gradient;
+  text-align: center;
   .title {
     color: white;
+  }
+  .button.cta {
+    margin-top: 2rem;
+    background: white;
+    border: none;
+    padding: 1rem 3rem;
+    color: $bookr-primary;
+    font-family: $family-secondary;
+    font-weight: bold;
+    box-shadow: 2px 2px 4px 0px rgba(black, 0.05), 0px 0px 20px rgba(#333, 0.25);
+  }
+}
+
+.featured-books {
+  .notification {
+    box-shadow: $default-shawdow;
   }
 }
