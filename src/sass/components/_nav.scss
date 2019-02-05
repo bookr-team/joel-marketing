@@ -1,8 +1,10 @@
 nav {
   position: relative;
-  padding: 0 2rem;
   .navbar-burger:hover {
     background-color: inherit;
+  }
+  @include from($navbar-breakpoint) {
+    padding: 0 2rem;
   }
   .navbar-menu {
     &.is-active {
@@ -57,4 +59,10 @@ nav {
   top: 0;
   left: 0;
   pointer-events: none;
+}
+
+@include from($navbar-breakpoint) {
+  nav.navbar {
+    min-height: 6rem;
+  }
 }
