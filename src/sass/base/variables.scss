@@ -1,0 +1,61 @@
+// Breakpoints
+// usage: @media (#{$bp-larger-than-mobile}) {}
+$bp-larger-than-mobile: 'min-width: 400px'; // 400px
+$bp-larger-than-phablet: 'min-width: 550px'; // 550px
+$bp-larger-than-tablet: 'min-width: 750px'; // 750px
+$bp-larger-than-desktop: 'min-width: 1000px'; // 1000px
+$bp-larger-than-desktophd: 'min-width: 1200px'; // 1200px
+
+// Layout
+$container-width: 960px;
+$container-width-larger-than-mobile: 85%;
+$container-width-larger-than-phablet: 80%;
+$total-columns: 12;
+$column-width: 100 / $total-columns;
+$column-margin: 4%;
+
+// Fonts
+$body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+// Colors
+$page-bg-color: #fafafa;
+$page-text-color: #333;
+$bookr-grey-color: #dfdce3;
+$bookr-blue-color: #53bdad;
+$bookr-orange-color: #fc5e32;
+$bookr-yellow-color: #f7be4d;
+
+// Gradient generator - http://www.colorzilla.com/gradient-editor/#97b498+0,c8e6c9+100
+
+// Global
+$global-border-radius: 0.6rem;
+$global-box-shadow: 2px 2px 4px 0px rgba(black, 0.05),
+  0px 0px 20px rgba($page-text-color, 0.15);
+
+// Body
+$body-background-color: $page-bg-color;
+$body-text-color: $page-text-color;
+$body-font-family: 'Open Sans', 'HelveticaNeue', 'Helvetica Neue', Helvetica,
+  Arial, sans-serif;
+
+// Links
+$link-color: $bookr-orange-color;
+$link-hover-color: $bookr-orange-color;
+
+// Headings
+$heading-font-family: 'Aleo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$heading-color: $page-text-color;
+
+// Forms
+// $form-item-border-radius: 0.6rem;
+
+// Buttons
+$button-text-color: white;
+// $button-bg-gradient: linear-gradient(
+//   174deg,
+//   tint($p1-fern-green, 15) 0%,
+//   $p1-fern-green 100%
+// );
+
+// gradients
+$white-grey-gradient: linear-gradient(180deg, #f0eff0 0%, #f1f8f9 100%);
