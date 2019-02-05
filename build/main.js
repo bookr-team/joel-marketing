@@ -9,7 +9,6 @@ burger.addEventListener('click', () => {
 });
 
 // nav menu highlighter
-
 // const followAlongLinks = document.querySelectorAll(
 //   'nav .navbar-menu a:not(.button)'
 // );
