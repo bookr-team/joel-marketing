@@ -1,13 +1,25 @@
 @import url("https://fonts.googleapis.com/css?family=Aleo:700|Open+Sans:400,400i,700,700i");
+a.button {
+  font-family: "Aleo", serif;
+  font-weight: bold;
+  box-shadow: 0.1rem 0.1rem 0.4rem 0 rgba(51, 51, 51, 0.15), 0 0 1rem rgba(51, 51, 51, 0.15); }
+
+.notification {
+  box-shadow: 0.1rem 0.1rem 0.4rem 0 rgba(51, 51, 51, 0.15), 0 0 1rem rgba(51, 51, 51, 0.15); }
+
 nav {
-  position: relative;
-  padding: 0 2rem; }
+  position: relative; }
   nav .navbar-burger:hover {
     background-color: inherit; }
+  @media (min-width: 660px) {
+    nav {
+      padding: 0 2rem; } }
   nav .navbar-menu {
     box-shadow: none; }
     nav .navbar-menu.is-active {
-      padding-bottom: 2rem; }
+      text-align: right;
+      padding-bottom: 2rem;
+      padding: 0 1rem 1.5rem; }
     @media (min-width: 660px) {
       nav .navbar-menu.is-active {
         padding-bottom: 0; } }
@@ -16,9 +28,15 @@ nav {
       nav .navbar-menu a:hover {
         color: #fc5e32; }
       nav .navbar-menu a:not(.button) {
-        padding: 0 1rem; }
+        padding: 0 1rem 1rem; }
+        @media (min-width: 660px) {
+          nav .navbar-menu a:not(.button) {
+            padding: 0 1rem; } }
     nav .navbar-menu .buttons {
-      margin-left: 1rem; }
+      justify-content: flex-end; }
+      @media (min-width: 660px) {
+        nav .navbar-menu .buttons {
+          margin-left: 1rem; } }
       nav .navbar-menu .buttons .button {
         border: none;
         background: #dfdce3;
@@ -27,18 +45,12 @@ nav {
           background: #fc5e32;
           color: white; }
 
-.navbar-brand a.navbar-item {
-  font-size: 2.5rem;
-  font-family: "Aleo", serif;
-  font-weight: bold; }
-  .navbar-brand a.navbar-item img {
-    height: 3rem;
-    max-height: none;
-    padding-left: 0.25rem;
-    padding-bottom: 0.5rem; }
-  .navbar-brand a.navbar-item:hover {
-    color: inherit;
-    background-color: inherit; }
+.navbar-brand a.navbar-item img {
+  height: 3.5rem;
+  max-height: none; }
+
+.navbar-brand a.navbar-item:hover {
+  background-color: inherit; }
 
 .menu-item-highlighter {
   transition: all 200ms;
@@ -50,26 +62,35 @@ nav {
   left: 0;
   pointer-events: none; }
 
+@media (min-width: 660px) {
+  nav.navbar {
+    min-height: 6rem; } }
+
 footer {
   background: #dfdce3; }
+  footer.section {
+    padding: 2rem 1.5rem 2rem; }
+  footer .footer-logo {
+    height: 3.5rem; }
+  footer .copyright {
+    margin-top: 2rem;
+    font-size: 80%; }
 
 .hero {
-  background: linear-gradient(135deg, #53bdad 40%, #8be0d6 100%);
+  background: linear-gradient(135deg, #53bdad 0%, #8be0d6 100%);
   text-align: center; }
   .hero .title {
     color: white; }
   .hero .button.cta {
     margin-top: 2rem;
-    background: white;
+    background: rgba(51, 51, 51, 0.5);
     border: none;
     padding: 1rem 3rem;
-    color: #53bdad;
-    font-family: "Aleo", serif;
-    font-weight: bold;
-    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.05), 0px 0px 20px rgba(51, 51, 51, 0.25); }
-
-.featured-books .notification {
-  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.05), 0px 0px 20px rgba(223, 220, 227, 0.25); }
+    color: white;
+    box-shadow: 2px 2px 4px 0px rgba(51, 51, 51, 0.25), 0px 0px 1rem rgba(51, 51, 51, 0.05);
+    transition: transform 200ms; }
+    .hero .button.cta:hover {
+      transform: scale(1.06); }
 
 /*! bulma.io v0.7.2 | MIT License | github.com/jgthms/bulma */
 @keyframes spinAround {
@@ -345,7 +366,7 @@ pre {
   font-family: monospace; }
 
 body {
-  color: #4a4a4a;
+  color: #333;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5; }
@@ -395,7 +416,7 @@ strong {
 pre {
   -webkit-overflow-scrolling: touch;
   background-color: whitesmoke;
-  color: #4a4a4a;
+  color: #333;
   font-size: 0.875em;
   overflow-x: auto;
   padding: 1.25rem 1.5rem;
@@ -727,10 +748,10 @@ a.has-text-danger:hover, a.has-text-danger:focus {
   background-color: #363636 !important; }
 
 .has-text-grey-dark {
-  color: #4a4a4a !important; }
+  color: #333 !important; }
 
 .has-background-grey-dark {
-  background-color: #4a4a4a !important; }
+  background-color: #333 !important; }
 
 .has-text-grey {
   color: #7a7a7a !important; }
@@ -961,7 +982,7 @@ a.has-text-danger:hover, a.has-text-danger:focus {
   background-color: white;
   border-radius: 6px;
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
-  color: #4a4a4a;
+  color: #333;
   display: block;
   padding: 1.25rem; }
 
@@ -1007,12 +1028,12 @@ a.box:active {
     .button:focus:not(:active), .button.is-focused:not(:active) {
       box-shadow: 0 0 0 0.125em rgba(50, 115, 220, 0.25); }
   .button:active, .button.is-active {
-    border-color: #4a4a4a;
+    border-color: #333;
     color: #363636; }
   .button.is-text {
     background-color: transparent;
     border-color: transparent;
-    color: #4a4a4a;
+    color: #333;
     text-decoration: underline; }
     .button.is-text:hover, .button.is-text.is-hovered, .button.is-text:focus, .button.is-text.is-focused {
       background-color: whitesmoke;
@@ -2485,7 +2506,7 @@ a.box:active {
 
 .file-cta {
   background-color: whitesmoke;
-  color: #4a4a4a; }
+  color: #333; }
 
 .file-name {
   border-color: #dbdbdb;
@@ -2898,11 +2919,11 @@ a.box:active {
   .progress::-webkit-progress-bar {
     background-color: #dbdbdb; }
   .progress::-webkit-progress-value {
-    background-color: #4a4a4a; }
+    background-color: #333; }
   .progress::-moz-progress-bar {
-    background-color: #4a4a4a; }
+    background-color: #333; }
   .progress::-ms-fill {
-    background-color: #4a4a4a;
+    background-color: #333;
     border: none; }
   .progress.is-white::-webkit-progress-value {
     background-color: white; }
@@ -3130,7 +3151,7 @@ a.box:active {
   align-items: center;
   background-color: whitesmoke;
   border-radius: 4px;
-  color: #4a4a4a;
+  color: #333;
   display: inline-flex;
   font-size: 0.75rem;
   height: 2em;
@@ -3261,7 +3282,7 @@ a.tag:hover {
     font-size: 0.75rem; }
 
 .subtitle {
-  color: #4a4a4a;
+  color: #333;
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.25; }
@@ -3372,7 +3393,7 @@ a.tag:hover {
 .card {
   background-color: white;
   box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
-  color: #4a4a4a;
+  color: #333;
   max-width: 100%;
   position: relative; }
 
@@ -3459,7 +3480,7 @@ a.tag:hover {
   padding-top: 0.5rem; }
 
 .dropdown-item {
-  color: #4a4a4a;
+  color: #333;
   display: block;
   font-size: 0.875rem;
   line-height: 1.5;
@@ -3567,7 +3588,7 @@ button.dropdown-item {
   display: block;
   padding: 0.5em 1em; }
   .list-item:not(a) {
-    color: #4a4a4a; }
+    color: #333; }
   .list-item:first-child {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px; }
@@ -3644,7 +3665,7 @@ a.list-item {
   line-height: 1.25; }
   .menu-list a {
     border-radius: 2px;
-    color: #4a4a4a;
+    color: #333;
     display: block;
     padding: 0.5em 0.75em; }
     .menu-list a:hover {
@@ -3766,7 +3787,7 @@ a.list-item {
 
 .message-header {
   align-items: center;
-  background-color: #4a4a4a;
+  background-color: #333;
   border-radius: 4px 4px 0 0;
   color: #fff;
   display: flex;
@@ -3789,7 +3810,7 @@ a.list-item {
   border-radius: 4px;
   border-style: solid;
   border-width: 0 0 0 4px;
-  color: #4a4a4a;
+  color: #333;
   padding: 1.25em 1.5em; }
   .message-body code,
   .message-body pre {
@@ -4326,7 +4347,7 @@ body.has-navbar-fixed-bottom {
   overflow-y: hidden; }
 
 .navbar-burger {
-  color: #4a4a4a;
+  color: #333;
   cursor: pointer;
   display: block;
   height: 5rem;
@@ -4364,7 +4385,7 @@ body.has-navbar-fixed-bottom {
 
 .navbar-item,
 .navbar-link {
-  color: #4a4a4a;
+  color: #333;
   display: block;
   line-height: 1.5;
   padding: 0.5rem 0.75rem;
@@ -4767,11 +4788,11 @@ a.navbar-item,
     margin-bottom: -1px;
     padding: 0.5em; }
     .panel-tabs a.is-active {
-      border-bottom-color: #4a4a4a;
+      border-bottom-color: #333;
       color: #363636; }
 
 .panel-list a {
-  color: #4a4a4a; }
+  color: #333; }
   .panel-list a:hover {
     color: #3273dc; }
 
@@ -4830,7 +4851,7 @@ label.panel-block {
     border-bottom-color: #dbdbdb;
     border-bottom-style: solid;
     border-bottom-width: 1px;
-    color: #4a4a4a;
+    color: #333;
     display: flex;
     justify-content: center;
     margin-bottom: -1px;
@@ -6254,7 +6275,7 @@ label.panel-block {
   padding: 3rem 1.5rem; }
 
 .section {
-  padding: 3rem 1.5rem; }
+  padding: 3rem 1.5rem 2rem; }
   @media screen and (min-width: 960px) {
     .section.is-medium {
       padding: 9rem 1.5rem; }
