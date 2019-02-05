@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: $page-bg-color;
+  color: $page-text-color;
+}
+
+p {
+  margin-top: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: $link-color;
+  &:hover {
+    color: $link-hover-color;
+  }
+}
+
+ul li {
+  font-size: 0.95em;
+}
