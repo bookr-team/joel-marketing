@@ -39,17 +39,11 @@ nav {
 }
 
 .navbar-brand a.navbar-item {
-  font-size: 2.5rem;
-  font-family: $bookr-heading-font;
-  font-weight: bold;
   img {
-    height: 3rem;
+    height: 3.5rem;
     max-height: none;
-    padding-left: 0.25rem;
-    padding-bottom: 0.5rem;
   }
   &:hover {
-    color: inherit;
     background-color: inherit;
   }
 }
