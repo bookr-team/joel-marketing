@@ -8,7 +8,9 @@ nav {
   }
   .navbar-menu {
     &.is-active {
+      text-align: right;
       padding-bottom: 2rem;
+      padding: 0 1rem 1.5rem;
     }
     @include from($navbar-breakpoint) {
       &.is-active {
@@ -22,11 +24,17 @@ nav {
         color: $bookr-orange;
       }
       &:not(.button) {
-        padding: 0 1rem;
+        padding: 0 1rem 1rem;
+        @include from($navbar-breakpoint) {
+          padding: 0 1rem;
+        }
       }
     }
     .buttons {
-      margin-left: 1rem;
+      justify-content: flex-end;
+      @include from($navbar-breakpoint) {
+        margin-left: 1rem;
+      }
       .button {
         border: none;
         background: $bookr-grey;
