@@ -26,4 +26,12 @@ $primary-invert: $pink-invert;
 // 4. Import the rest of Bulma
 */
 
-@import '../../node_modules/bulma/bulma';
+// @import '../../node_modules/bulma/bulma';
+
+@import 'base/variables';
+@import 'base/normalize';
+@import 'base/mixins';
+@import 'base/grid';
+@import 'base/fonts';
+@import 'base/typography';
+@import 'base/base';
