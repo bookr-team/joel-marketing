@@ -1,6 +1,13 @@
 footer {
+  &.section {
+    padding: 2rem 1.5rem 2rem;
+  }
   background: $bookr-grey;
   .footer-logo {
     height: 3.5rem;
+  }
+  .copyright {
+    margin-top: 2rem;
+    font-size: 80%;
   }
 }
