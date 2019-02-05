@@ -1,0 +1,61 @@
+nav {
+  position: relative;
+  padding: 0 2rem;
+  .navbar-burger:hover {
+    background-color: inherit;
+  }
+  .navbar-menu {
+    &.is-active {
+      padding-bottom: 2rem;
+    }
+    @include from($navbar-breakpoint) {
+      &.is-active {
+        padding-bottom: 0;
+      }
+    }
+    box-shadow: none;
+    a {
+      font-size: 1.5rem;
+      &:hover {
+        color: $bookr-orange;
+      }
+    }
+    .buttons {
+      margin-left: 1rem;
+      .button {
+        background: $primary-button-bg;
+        color: white;
+        border: none;
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
+
+.navbar-brand a.navbar-item {
+  font-size: 2.5rem;
+  font-family: $bookr-heading-font;
+  font-weight: bold;
+  img {
+    height: 3rem;
+    max-height: none;
+    padding-left: 0.25rem;
+    padding-bottom: 0.5rem;
+  }
+  &:hover {
+    color: inherit;
+    background-color: inherit;
+  }
+}
+
+.menu-item-highlighter {
+  transition: all 200ms;
+  //   border-bottom: 3px solid $bookr-orange;
+  background: $bookr-orange;
+  position: absolute;
+  z-index: 50;
+  display: block;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
