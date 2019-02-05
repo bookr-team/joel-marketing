@@ -15,18 +15,24 @@ nav {
     }
     box-shadow: none;
     a {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       &:hover {
         color: $bookr-orange;
+      }
+      &:not(.button) {
+        padding: 0 1rem;
       }
     }
     .buttons {
       margin-left: 1rem;
       .button {
-        background: $primary-button-bg;
-        color: white;
         border: none;
-        font-size: 1.25rem;
+        background: $bookr-grey;
+        font-family: $family-secondary;
+        &:hover {
+          background: $bookr-orange;
+          color: white;
+        }
       }
     }
   }
@@ -50,7 +56,6 @@ nav {
 
 .menu-item-highlighter {
   transition: all 200ms;
-  //   border-bottom: 3px solid $bookr-orange;
   background: $bookr-orange;
   position: absolute;
   z-index: 50;
