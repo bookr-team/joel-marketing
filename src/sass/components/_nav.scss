@@ -1,0 +1,76 @@
+nav {
+  position: relative;
+  .navbar-burger:hover {
+    background-color: inherit;
+  }
+  @include from($navbar-breakpoint) {
+    padding: 0 2rem;
+  }
+  .navbar-menu {
+    &.is-active {
+      text-align: right;
+      padding-bottom: 2rem;
+      padding: 0 1rem 1.5rem;
+    }
+    @include from($navbar-breakpoint) {
+      &.is-active {
+        padding-bottom: 0;
+      }
+    }
+    box-shadow: none;
+    a {
+      font-size: 1.25rem;
+      &:hover {
+        color: $bookr-orange;
+      }
+      &:not(.button) {
+        padding: 0 1rem 1rem;
+        @include from($navbar-breakpoint) {
+          padding: 0 1rem;
+        }
+      }
+    }
+    .buttons {
+      justify-content: flex-end;
+      @include from($navbar-breakpoint) {
+        margin-left: 1rem;
+      }
+      .button {
+        border: none;
+        background: $bookr-grey;
+        font-family: $family-secondary;
+        &:hover {
+          background: $bookr-orange;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.navbar-brand a.navbar-item {
+  img {
+    height: 3.5rem;
+    max-height: none;
+  }
+  &:hover {
+    background-color: inherit;
+  }
+}
+
+.menu-item-highlighter {
+  transition: all 200ms;
+  background: $bookr-orange;
+  position: absolute;
+  z-index: 50;
+  display: block;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+@include from($navbar-breakpoint) {
+  nav.navbar {
+    min-height: 6rem;
+  }
+}

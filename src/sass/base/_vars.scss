@@ -1,0 +1,33 @@
+$bookr-primary: #53bdad;
+$bookr-primary-alt: #8be0d6;
+$bookr-orange: #fc5e32;
+$bookr-orange-alt: #fe9861;
+$bookr-yellow: #f7be4d;
+$bookr-yellow-alt: #fce184;
+$bookr-grey: #dfdce3;
+$bookr-grey-alt: #f1f0f3;
+
+$bookr-heading-font: 'Aleo', serif;
+
+$default-shadow: 0.1rem 0.1rem 0.4rem 0 rgba(#333, 0.15),
+  0 0 1rem rgba(#333, 0.15);
+
+// bulma vars
+$section-padding: 3rem 1.5rem 2rem;
+
+$grey-dark: #333;
+$family-sans-serif: 'Open Sans', sans-serif;
+$family-secondary: 'Aleo', serif;
+$primary: $bookr-primary;
+
+// breakpoints
+$gap: 32px;
+$tablet: 568px;
+$desktop: 896px + (2 * $gap);
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+
+// navbar
+$navbar-breakpoint: 660px;
+$navbar-height: 5rem;
+$navbar-item-hover-background-color: white;
