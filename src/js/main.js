@@ -1,6 +1,21 @@
 // TODO init highlighter at first hover element with positionInitial()
+// hi there!
 // let's define some component classes
 class Highlighter {
+  /* ------- Usage ---------------------------------------
+      - Must pass a config variable to the constructor
+      - Required config properties are
+        - boundarySelector
+        - targetsSelector
+      - Optional config properties are
+        - heightPx
+        - offsetPx
+        - color
+        - transitionMs
+        - windowMinWidth
+      - The highlight will follow the pointer around over specified targets
+      - The effect can be disabled when window is below specified width
+     ----------------------------------------------------- */
   constructor(config) {
     this.boundary = document.querySelector(config.boundarySelector);
     this.targets = document.querySelectorAll(config.targetsSelector);
@@ -207,6 +222,7 @@ function populateTestimonialTemplate(t) {
 const testimonials = ajaxResponse.map(t => populateTestimonialTemplate(t));
 const insertLocation = document.querySelector('div.testimonials-container');
 testimonials.forEach(t => {
+  // LEARNING MOMENT - how do we create DOM nodes from an HTML string?
   const docFragment = document.createRange().createContextualFragment(t);
   insertLocation.append(docFragment);
 });
@@ -215,5 +231,6 @@ testimonials.forEach(t => {
 // a slideshow out of them
 const slider = new AutomaticSlideShow({
   componentElSelector: '.testimonials-component',
-  slidesContainerElSelector: '.testimonials-container'
+  slidesContainerElSelector: '.testimonials-container',
+  slideDelayMs: 6500
 });
