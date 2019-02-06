@@ -7,13 +7,13 @@ burger.addEventListener('click', () => {
   navMenu.classList.toggle('is-active');
 });
 
-// TODO init highlighter at first hover element with positionInital()
+// TODO init highlighter at first hover element with positionInitial()
 class Highlighter {
   constructor(config) {
     this.boundary = document.querySelector(config.boundarySelector);
     this.targets = document.querySelectorAll(config.targetsSelector);
     this.highlighterHeight = config.heightPx || 'cover';
-    this.highlighterOffset = config.offset || 0;
+    this.highlighterOffset = config.offsetPx || 0;
     this.highlighterColor = config.color || 'rgba(255, 165, 0, 0.5)';
     this.transitionMs = config.transitionMs || 200;
     this.windowMinWidth = config.windowMinWidth || 0;
@@ -35,14 +35,15 @@ class Highlighter {
   initHighlighter() {
     const highlighter = document.createElement('div');
     const styles = `
-      transition: all ${this.transitionMs}ms;
-      background: ${this.highlighterColor};
-      position: absolute;
-      z-index: 1000;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-    `;
+        transition: all ${this.transitionMs}ms;
+        background: ${this.highlighterColor};
+        position: absolute;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+      `;
+
     highlighter.style.cssText = styles;
     document.body.append(highlighter);
     this.highlighter = highlighter;
@@ -79,6 +80,7 @@ const hl = new Highlighter({
   boundarySelector: 'nav .hover-effect-bound',
   targetsSelector: 'nav .navbar-menu a:not(.button)',
   heightPx: 4,
+  offsetPx: 20,
   color: '#fc5e32',
   windowMinWidth: 700
 });
