@@ -151,7 +151,53 @@ class AutomaticSlideShow {
   }
 }
 
-// slides are all direct children of slidesContainer
+// let's get some testimonials
+// we make a call to the backend and parse the response
+const ajaxResponse = [
+  {
+    name: 'Kate',
+    location: 'Seattle',
+    blurb: 'Bookr makes life worth living! 14/10 would recommend.',
+    imgUrl: 'images/profiles/01.jpg'
+  },
+  {
+    name: 'John',
+    location: 'Denver',
+    blurb:
+      'I use Bookr religiously. My friends are sick of hearing me rave about the service. Keep up the good work!',
+    imgUrl: 'images/profiles/02.jpg'
+  },
+  {
+    name: 'Elba',
+    location: 'Little Rock',
+    blurb: "I've never had so much fun reading book reviews. Thanks Bookr!",
+    imgUrl: 'images/profiles/03.jpg'
+  }
+];
+
+// we need some HTML for our testimonials
+function populateTestimonialTemplate(t) {
+  return `
+  <div class="testimonial ${t.name.toLowerCase()}">
+    <div class="blurb">${t.blurb}</div>
+    <div class="profile">
+      <div class="name">${t.name}, ${t.location}</div>
+      <div class="photo"><img src="${t.imgUrl}" alt="${t.name}" /></div>
+    </div>
+  </div>
+  `;
+}
+
+// let's populate the testimonials container
+const testimonials = ajaxResponse.map(t => populateTestimonialTemplate(t));
+const insertLocation = document.querySelector('div.testimonials-container');
+testimonials.forEach(t => {
+  const docFragment = document.createRange().createContextualFragment(t);
+  insertLocation.append(docFragment);
+});
+
+// now that we have some testimonials on the page, we'll make
+// a slideshow out of them
 const slider = new AutomaticSlideShow({
   componentElSelector: '.testimonials-component',
   slidesContainer: '.testimonials-container'
