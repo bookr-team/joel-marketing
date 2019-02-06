@@ -4,6 +4,8 @@
   //   margin: auto;
   overflow: hidden;
   position: relative;
+  border-radius: 1rem;
+  background: $orange-gradient;
 
   .testimonials-container {
     display: flex;
@@ -16,22 +18,73 @@
     width: 100%;
     flex-shrink: 0;
     height: 300px;
-    background: $bookr-yellow;
+    color: white;
   }
 
   .testimonial-transition {
     transition: transform 0.3s ease-in-out;
   }
 
+  .blurb {
+    font-family: $family-secondary;
+    font-size: 1.25rem;
+    position: absolute;
+    padding: 0 1.5rem;
+    top: 2rem;
+    left: 0;
+  }
+
+  .profile {
+    display: flex;
+    padding: 0 1.5rem;
+    align-items: center;
+    position: absolute;
+    bottom: 2rem;
+    right: 0rem;
+  }
+
+  .name {
+    flex-grow: 1;
+    padding: 0 1rem 0 0;
+    text-align: right;
+    font-weight: bold;
+    font-size: 90%;
+  }
+
   .photo {
-    width: 20%;
-    height: 20%;
+    width: 6rem;
     img {
       border-radius: 50%;
       object-fit: cover;
     }
-    position: absolute;
-    left: 10%;
-    top: 20%;
+  }
+
+  .testimonial.kate {
+    .profile {
+      padding-top: 1rem;
+    }
+  }
+
+  @include from(500px) {
+    .blurb,
+    .profile {
+      padding: 0 2rem;
+    }
+    .photo {
+      width: 8rem;
+    }
+  }
+  @include from(800px) {
+    .blurb {
+      width: 80%;
+    }
+    .blurb,
+    .profile {
+      padding: 0 5rem;
+      font-size: 1.5rem;
+    }
+    .photo {
+      width: 10rem;
+    }
   }
 }
