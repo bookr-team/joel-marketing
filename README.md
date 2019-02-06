@@ -15,7 +15,7 @@
 
 ## Build for deploy
 
-`npm deploy`
+`npm run deploy`
 
 ## See all commands
 
