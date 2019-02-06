@@ -1,13 +1,5 @@
-// navigation
-const burger = document.querySelector('.burger');
-const navMenu = document.querySelector(`#${burger.dataset.target}`);
-
-burger.addEventListener('click', () => {
-  burger.classList.toggle('is-active');
-  navMenu.classList.toggle('is-active');
-});
-
 // TODO init highlighter at first hover element with positionInitial()
+// let's define some component classes
 class Highlighter {
   constructor(config) {
     this.boundary = document.querySelector(config.boundarySelector);
@@ -76,21 +68,25 @@ class Highlighter {
   }
 }
 
-const hl = new Highlighter({
-  boundarySelector: 'nav .hover-effect-bound',
-  targetsSelector: 'nav .navbar-menu a:not(.button)',
-  heightPx: 4,
-  offsetPx: 20,
-  color: '#fc5e32',
-  windowMinWidth: 700
-});
-
+// another component
 class AutomaticSlideShow {
+  /* ------- Usage ---------------------------------------
+      - Must pass a config variable to the constructor
+      - Required config properties are
+        - componentElSelector
+        - slidesContainerElSelector
+      - Optional config properties are
+        - slideDelayMs
+        - transitionMs
+      - Slides are all direct children of the slides container
+      - Slides will advance automatically every slideDelayMs
+      - The slideshow will pause on mouse hover
+     ----------------------------------------------------- */
   constructor(config) {
     this.config = config;
     this.currentIndex = 1;
     this.element = document.querySelector(config.componentElSelector);
-    this.slidesContainer = this.element.querySelector(config.slidesContainer);
+    this.slidesContainer = this.element.querySelector(config.slidesContainerElSelector);
     this.sliderWidth = this.slidesContainer.clientWidth;
     this.slides = this.slidesContainer.children;
     this.slideDelayMs = config.slideDelayMs || 5000;
@@ -139,17 +135,36 @@ class AutomaticSlideShow {
   }
   pause() {
     clearInterval(this.interval);
-    console.log('pause');
   }
   resume() {
     this.run();
-    console.log('resume');
   }
   reset() {
     this.sliderWidth = this.slidesContainer.clientWidth;
     this.transitionSlide();
   }
 }
+
+// we'll show our nav menu when the user clicks the burger icon...
+const burger = document.querySelector('.burger');
+const navMenu = document.querySelector(`#${burger.dataset.target}`);
+
+function toggleNavMenu() {
+  burger.classList.toggle('is-active');
+  navMenu.classList.toggle('is-active');
+}
+
+burger.addEventListener('click', toggleNavMenu);
+
+// ...and add a fancy menu item highlight effect
+const hl = new Highlighter({
+  boundarySelector: 'nav .hover-effect-bound',
+  targetsSelector: 'nav .navbar-menu a:not(.button)',
+  heightPx: 4,
+  offsetPx: 20,
+  color: '#fc5e32',
+  windowMinWidth: 700
+});
 
 // let's get some testimonials
 // we make a call to the backend and parse the response
@@ -200,5 +215,5 @@ testimonials.forEach(t => {
 // a slideshow out of them
 const slider = new AutomaticSlideShow({
   componentElSelector: '.testimonials-component',
-  slidesContainer: '.testimonials-container'
+  slidesContainerElSelector: '.testimonials-container'
 });
