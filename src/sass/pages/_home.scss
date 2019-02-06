@@ -1,5 +1,6 @@
 .hero {
-  background: $primary-gradient;
+  // background: $primary-gradient;
+  background: url('../images/hero-bg.png') center / cover;
   text-align: center;
   .title {
     color: white;
