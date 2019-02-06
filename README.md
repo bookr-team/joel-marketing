@@ -9,7 +9,7 @@
 
 `npm install`
 
-## Start dev server
+## Watch src files, build on save
 
 `npm start`
 
