@@ -7,6 +7,7 @@ burger.addEventListener('click', () => {
   navMenu.classList.toggle('is-active');
 });
 
+// TODO init highlighter at first hover element with positionInital()
 class Highlighter {
   constructor(config) {
     this.boundary = document.querySelector(config.boundarySelector);
@@ -31,7 +32,7 @@ class Highlighter {
       if (this.highlighter) this.highlighter.style.width = 0;
     });
   }
-  initHighlighterEl() {
+  initHighlighter() {
     const highlighter = document.createElement('div');
     const styles = `
       transition: all ${this.transitionMs}ms;
@@ -52,7 +53,8 @@ class Highlighter {
     if (this.windowMinWidth > window.innerWidth) return;
 
     if (this.firstHover) {
-      this.initHighlighterEl();
+      this.initHighlighter();
+      // this.positionInitial();
       this.firstHover = false;
     }
 
