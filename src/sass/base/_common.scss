@@ -2,6 +2,13 @@ a.button {
   font-family: $family-secondary;
   font-weight: bold;
   box-shadow: $default-shadow;
+  border: none;
+  background: $bookr-grey;
+
+  &:hover {
+    background: $bookr-orange;
+    color: white;
+  }
 }
 
 .notification {
