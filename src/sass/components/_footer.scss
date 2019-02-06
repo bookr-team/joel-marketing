@@ -8,8 +8,7 @@ footer {
   }
   .social-links,
   .contact-info,
-  .footer-logo,
-  .newsletter-signup {
+  .footer-logo {
     padding-bottom: 1rem;
   }
   .footer-logo {
@@ -21,6 +20,7 @@ footer {
     }
   }
   .newsletter-signup {
+    margin: 1rem 0 2rem;
     label {
       display: block;
     }
