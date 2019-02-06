@@ -3,11 +3,44 @@ footer {
     padding: 2rem 1.5rem 2rem;
   }
   background: $bookr-grey;
+  a {
+    color: inherit;
+  }
+  .social-links,
+  .contact-info,
+  .footer-logo,
+  .newsletter-signup {
+    padding-bottom: 1rem;
+  }
   .footer-logo {
     height: 3.5rem;
   }
+  .social-links {
+    p {
+      line-height: 2em;
+    }
+  }
+  .newsletter-signup {
+    label {
+      display: block;
+    }
+    .title,
+    p,
+    input {
+      margin-bottom: 0.5rem;
+      @include from('440px') {
+        width: 20rem;
+      }
+    }
+    input {
+      background: rgba(white, 0.65);
+      &:focus {
+        background: white;
+      }
+    }
+  }
   .copyright {
-    margin-top: 2rem;
+    margin-top: 1rem;
     font-size: 80%;
   }
 }
