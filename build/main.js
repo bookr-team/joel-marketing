@@ -1,14 +1,21 @@
-// navigation
-const burger = document.querySelector('.burger');
-const navMenu = document.querySelector(`#${burger.dataset.target}`);
-
-burger.addEventListener('click', () => {
-  burger.classList.toggle('is-active');
-  navMenu.classList.toggle('is-active');
-});
-
 // TODO init highlighter at first hover element with positionInitial()
+// hi there!
+// let's define some component classes
 class Highlighter {
+  /* ------- Usage ---------------------------------------
+      - Must pass a config variable to the constructor
+      - Required config properties are
+        - boundarySelector
+        - targetsSelector
+      - Optional config properties are
+        - heightPx
+        - offsetPx
+        - color
+        - transitionMs
+        - windowMinWidth
+      - The highlight will follow the pointer around over specified targets
+      - The effect can be disabled when window is below specified width
+     ----------------------------------------------------- */
   constructor(config) {
     this.boundary = document.querySelector(config.boundarySelector);
     this.targets = document.querySelectorAll(config.targetsSelector);
@@ -74,21 +81,25 @@ class Highlighter {
   }
 }
 
-const hl = new Highlighter({
-  boundarySelector: 'nav .hover-effect-bound',
-  targetsSelector: 'nav .navbar-menu a:not(.button)',
-  heightPx: 4,
-  offsetPx: 20,
-  color: '#fc5e32',
-  windowMinWidth: 700
-});
-
+// another component
 class AutomaticSlideShow {
+  /* ------- Usage ---------------------------------------
+      - Must pass a config variable to the constructor
+      - Required config properties are
+        - componentElSelector
+        - slidesContainerElSelector
+      - Optional config properties are
+        - slideDelayMs
+        - transitionMs
+      - Slides are all direct children of the slides container
+      - Slides will advance automatically every slideDelayMs
+      - The slideshow will pause on mouse hover
+     ----------------------------------------------------- */
   constructor(config) {
     this.config = config;
     this.currentIndex = 1;
     this.element = document.querySelector(config.componentElSelector);
-    this.slidesContainer = this.element.querySelector(config.slidesContainer);
+    this.slidesContainer = this.element.querySelector(config.slidesContainerElSelector);
     this.sliderWidth = this.slidesContainer.clientWidth;
     this.slides = this.slidesContainer.children;
     this.slideDelayMs = config.slideDelayMs || 5000;
@@ -137,11 +148,9 @@ class AutomaticSlideShow {
   }
   pause() {
     clearInterval(this.interval);
-    console.log('pause');
   }
   resume() {
     this.run();
-    console.log('resume');
   }
   reset() {
     this.sliderWidth = this.slidesContainer.clientWidth;
@@ -149,8 +158,72 @@ class AutomaticSlideShow {
   }
 }
 
-// slides are all direct children of slidesContainer
+// we'll show our nav menu when the user clicks the burger icon...
+const burger = document.querySelector('.burger');
+const navMenu = document.querySelector(`#${burger.dataset.target}`);
+
+function toggleNavMenu() {
+  burger.classList.toggle('is-active');
+  navMenu.classList.toggle('is-active');
+}
+
+burger.addEventListener('click', toggleNavMenu);
+
+// ...and add a fancy menu item highlight effect
+const hl = new Highlighter({
+  boundarySelector: 'nav .hover-effect-bound',
+  targetsSelector: 'nav .navbar-menu a:not(.button)',
+  heightPx: 4,
+  offsetPx: 20,
+  color: '#fc5e32',
+  windowMinWidth: 700
+});
+
+// let's get some testimonials
+// we make a call to the backend and parse the response
+const ajaxResponse = [{
+  name: 'Kate',
+  location: 'Seattle',
+  blurb: 'Bookr makes life worth living! 14/10 would recommend.',
+  imgUrl: 'images/profiles/01.jpg'
+}, {
+  name: 'John',
+  location: 'Denver',
+  blurb: 'I use Bookr religiously. My friends are sick of hearing me rave about the service. Keep up the good work!',
+  imgUrl: 'images/profiles/02.jpg'
+}, {
+  name: 'Elba',
+  location: 'Little Rock',
+  blurb: "I've never had so much fun reading book reviews. Thanks Bookr!",
+  imgUrl: 'images/profiles/03.jpg'
+}];
+
+// we need some HTML for our testimonials
+function populateTestimonialTemplate(t) {
+  return `
+  <div class="testimonial ${t.name.toLowerCase()}">
+    <div class="blurb">${t.blurb}</div>
+    <div class="profile">
+      <div class="name">${t.name}, ${t.location}</div>
+      <div class="photo"><img src="${t.imgUrl}" alt="${t.name}" /></div>
+    </div>
+  </div>
+  `;
+}
+
+// let's populate the testimonials container
+const testimonials = ajaxResponse.map(t => populateTestimonialTemplate(t));
+const insertLocation = document.querySelector('div.testimonials-container');
+testimonials.forEach(t => {
+  // LEARNING MOMENT - how do we create DOM nodes from an HTML string?
+  const docFragment = document.createRange().createContextualFragment(t);
+  insertLocation.append(docFragment);
+});
+
+// now that we have some testimonials on the page, we'll make
+// a slideshow out of them
 const slider = new AutomaticSlideShow({
   componentElSelector: '.testimonials-component',
-  slidesContainer: '.testimonials-container'
+  slidesContainerElSelector: '.testimonials-container',
+  slideDelayMs: 6500
 });
