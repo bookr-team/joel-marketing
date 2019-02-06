@@ -84,3 +84,75 @@ const hl = new Highlighter({
   color: '#fc5e32',
   windowMinWidth: 700
 });
+
+class AutomaticSlideShow {
+  constructor(config) {
+    this.config = config;
+    this.currentIndex = 1;
+    this.element = document.querySelector(config.componentElSelector);
+    this.slidesContainer = this.element.querySelector(config.slidesContainer);
+    this.sliderWidth = this.slidesContainer.clientWidth;
+    this.slides = this.slidesContainer.children;
+    this.slideDelayMs = config.slideDelayMs || 5000;
+    this.transitionMs = config.transitionMs || 300;
+    this.attachListeners();
+    this.cloneFirstAndLast();
+    this.transitionSlide();
+    this.run();
+  }
+  run() {
+    this.interval = setInterval(() => this.showNext(), this.slideDelayMs);
+  }
+  attachListeners() {
+    this.slidesContainer.addEventListener('mouseenter', () => this.pause());
+    this.slidesContainer.addEventListener('mouseleave', () => this.resume());
+    this.slidesContainer.addEventListener('transitionend', () => this.completeTransition());
+    window.addEventListener('resize', () => this.reset());
+  }
+  cloneFirstAndLast() {
+    const first = this.slides[0].cloneNode(true);
+    const last = this.slides[this.slides.length - 1].cloneNode(true);
+    first.id = 'first-clone';
+    last.id = 'last-clone';
+    this.slidesContainer.prepend(last);
+    this.slidesContainer.append(first);
+    this.slides = this.slidesContainer.children;
+  }
+  transitionSlide() {
+    const transformPx = -this.sliderWidth * this.currentIndex;
+    this.slidesContainer.style.transform = `translateX(${transformPx}px)`;
+  }
+  showNext() {
+    if (this.currentIndex >= this.slides.length - 1) return;
+    this.slidesContainer.style.transition = `transform ${this.transitionMs}ms ease-in-out`;
+    this.currentIndex++;
+    this.transitionSlide();
+  }
+  completeTransition() {
+    const slideId = this.slides[this.currentIndex].id || null;
+    if (slideId === 'last-clone' || slideId === 'first-clone') {
+      const offset = slideId === 'last-clone' ? 2 : this.currentIndex;
+      this.slidesContainer.style.transition = '';
+      this.currentIndex = this.slides.length - offset;
+      this.transitionSlide();
+    }
+  }
+  pause() {
+    clearInterval(this.interval);
+    console.log('pause');
+  }
+  resume() {
+    this.run();
+    console.log('resume');
+  }
+  reset() {
+    this.sliderWidth = this.slidesContainer.clientWidth;
+    this.transitionSlide();
+  }
+}
+
+// slides are all direct children of slidesContainer
+const slider = new AutomaticSlideShow({
+  componentElSelector: '.testimonials-component',
+  slidesContainer: '.testimonials-container'
+});
