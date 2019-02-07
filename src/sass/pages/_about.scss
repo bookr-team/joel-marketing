@@ -15,12 +15,16 @@
     text-align: center;
     margin: 1rem;
     padding: 1rem 0;
-    width: calc(33% - 2rem);
+    width: calc(50% - 2rem);
+    @include from(700px) {
+      width: calc(33% - 2rem);
+    }
     box-shadow: $default-shadow;
     border-radius: 0.5rem;
     img {
       border-radius: 50%;
-      width: 75%;
+      width: 55%;
+      padding: 1.5rem 0;
     }
     // transform: scale(0.9);
     transition: all 200ms;
