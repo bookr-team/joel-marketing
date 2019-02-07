@@ -40,14 +40,16 @@ class Highlighter {
     });
   }
   initHighlighter() {
+    this.initialTarget = this.currentTarget;
+    const initialCoords = this.initialTarget.getBoundingClientRect();
     const highlighter = document.createElement('div');
     const styles = `
         transition: all ${this.transitionMs}ms;
         background: ${this.highlighterColor};
         position: absolute;
         z-index: 1000;
-        top: 0;
-        left: 0;
+        top: ${initialCoords.top}px;
+        left: ${initialCoords.left}px;
         pointer-events: none;
       `;
 
