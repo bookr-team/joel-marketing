@@ -1,4 +1,3 @@
-// TODO init highlighter at first hover element with positionInitial()
 // hi there!
 // let's define some component classes
 class Highlighter {
