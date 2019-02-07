@@ -176,79 +176,84 @@ class AutomaticSlideShow {
 }
 
 // we'll show our nav menu when the user clicks the burger icon...
-const burger = document.querySelector('.burger');
-const navMenu = document.querySelector(`#${burger.dataset.target}`);
+function initNavigation() {
+  const burger = document.querySelector('.burger');
+  const navMenu = document.querySelector(`#${burger.dataset.target}`);
 
-function toggleNavMenu() {
-  burger.classList.toggle('is-active');
-  navMenu.classList.toggle('is-active');
+  function toggleNavMenu() {
+    burger.classList.toggle('is-active');
+    navMenu.classList.toggle('is-active');
+  }
+
+  burger.addEventListener('click', toggleNavMenu);
 }
 
-burger.addEventListener('click', toggleNavMenu);
-
-// ...and add a fancy menu item highlight effect
-const hl = new Highlighter({
-  boundarySelector: 'nav .hover-effect-bound',
-  targetsSelector: 'nav .navbar-menu a:not(.button)',
-  heightPx: 4,
-  offsetPx: 20,
-  color: '#fc5e32',
-  windowMinWidth: 700
-});
+function initHighlighterEffect() {
+  // ...and add a fancy menu item highlight effect
+  const hl = new Highlighter({
+    boundarySelector: 'nav .hover-effect-bound',
+    targetsSelector: 'nav .navbar-menu a:not(.button)',
+    heightPx: 4,
+    offsetPx: 20,
+    color: '#fc5e32',
+    windowMinWidth: 700
+  });
+}
 
 // let's get some testimonials
 // we make a call to the backend and parse the response
-const ajaxResponse = [
-  {
-    name: 'Kate',
-    location: 'Seattle',
-    blurb: 'Bookr makes life worth living! 14/10 would recommend.',
-    imgUrl: 'images/profiles/01.jpg'
-  },
-  {
-    name: 'John',
-    location: 'Denver',
-    blurb:
-      'I use Bookr religiously. My friends are sick of hearing me rave about the service. Keep up the good work!',
-    imgUrl: 'images/profiles/02.jpg'
-  },
-  {
-    name: 'Elba',
-    location: 'Little Rock',
-    blurb: "I've never had so much fun reading book reviews. Thanks Bookr!",
-    imgUrl: 'images/profiles/03.jpg'
-  }
-];
+function initTestimonials() {
+  const ajaxResponse = [
+    {
+      name: 'Kate',
+      location: 'Seattle',
+      blurb: 'Bookr makes life worth living! 14/10 would recommend.',
+      imgUrl: 'images/profiles/01.jpg'
+    },
+    {
+      name: 'John',
+      location: 'Denver',
+      blurb:
+        'I use Bookr religiously. My friends are sick of hearing me rave about the service. Keep up the good work!',
+      imgUrl: 'images/profiles/02.jpg'
+    },
+    {
+      name: 'Elba',
+      location: 'Little Rock',
+      blurb: "I've never had so much fun reading book reviews. Thanks Bookr!",
+      imgUrl: 'images/profiles/03.jpg'
+    }
+  ];
 
-// we need some HTML for our testimonials
-function populateTestimonialTemplate(t) {
-  return `
-  <div class="testimonial ${t.name.toLowerCase()}">
-    <div class="blurb">${t.blurb}</div>
-    <div class="profile">
-      <div class="name">${t.name}, ${t.location}</div>
-      <div class="photo"><img src="${t.imgUrl}" alt="${t.name}" /></div>
+  // we need some HTML for our testimonials
+  function populateTestimonialTemplate(t) {
+    return `
+    <div class="testimonial ${t.name.toLowerCase()}">
+      <div class="blurb">${t.blurb}</div>
+      <div class="profile">
+        <div class="name">${t.name}, ${t.location}</div>
+        <div class="photo"><img src="${t.imgUrl}" alt="${t.name}" /></div>
+      </div>
     </div>
-  </div>
-  `;
-}
+    `;
+  }
 
-// let's populate the testimonials container
-const testimonials = ajaxResponse.map(t => populateTestimonialTemplate(t));
-const insertLocation = document.querySelector('div.testimonials-container');
-testimonials.forEach(t => {
-  // LEARNING MOMENT - how do we create DOM nodes from an HTML string?
-  const docFragment = document.createRange().createContextualFragment(t);
-  insertLocation.append(docFragment);
-});
+  // let's populate the testimonials container
+  const testimonials = ajaxResponse.map(t => populateTestimonialTemplate(t));
+  const insertLocation = document.querySelector('div.testimonials-container');
+  testimonials.forEach(t => {
+    // LEARNING MOMENT - how do we create DOM nodes from an HTML string?
+    const docFragment = document.createRange().createContextualFragment(t);
+    insertLocation.append(docFragment);
+  });
 
-// now that we have some testimonials on the page, we'll make
-// a slideshow out of them
-const slider = new AutomaticSlideShow({
-  componentElSelector: '.testimonials-component',
-  slidesContainerElSelector: '.testimonials-container',
-  slideDelayMs: 6500
-});
+  // now that we have some testimonials on the page, we'll make
+  // a slideshow out of them
+  const slider = new AutomaticSlideShow({
+    componentElSelector: '.testimonials-component',
+    slidesContainerElSelector: '.testimonials-container',
+    slideDelayMs: 6500
+  });
 }
 
 // let's fetch some recent blog posts for our news page
@@ -306,3 +311,13 @@ function initRecentPosts() {
     .then(parseResponse)
     .catch(handleError);
 }
+
+// FIRE!
+console.log('👋 Welcome.');
+const currentPage = document.body.dataset.page;
+// all pages
+initNavigation();
+initHighlighterEffect();
+// page-specific stuff
+if (currentPage === 'home') initTestimonials();
+if (currentPage === 'news') initRecentPosts();
