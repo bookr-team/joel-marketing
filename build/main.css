@@ -65,7 +65,8 @@ nav {
   overflow: hidden;
   position: relative;
   border-radius: 0.5rem;
-  background: linear-gradient(135deg, #fc5e32 0%, #fe9861 100%); }
+  background: linear-gradient(135deg, #fc5e32 0%, #fe9861 100%);
+  margin-bottom: 2rem; }
   .testimonials-component .testimonials-container {
     display: flex;
     width: 100%; }
@@ -214,13 +215,17 @@ footer {
   text-align: center;
   margin: 1rem;
   padding: 1rem 0;
-  width: calc(33% - 2rem);
+  width: calc(50% - 2rem);
   box-shadow: 0.1rem 0.1rem 0.4rem 0 rgba(51, 51, 51, 0.15), 0 0 1rem rgba(51, 51, 51, 0.15);
   border-radius: 0.5rem;
   transition: all 200ms; }
+  @media (min-width: 700px) {
+    .our-team .member {
+      width: calc(33% - 2rem); } }
   .our-team .member img {
     border-radius: 50%;
-    width: 75%; }
+    width: 55%;
+    padding: 1.5rem 0; }
   .our-team .member:hover {
     transform: scale(1.1) rotate(-1deg);
     color: #fc5e32; }
