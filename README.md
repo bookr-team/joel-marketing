@@ -1,22 +1,26 @@
 # Bookr marketing site
 
+## Stack
+
 - Using Bulma CSS framework
 - SASS with auto-prefixing
 - Babel for ES6
 - Based on `bulma-start` ([repo](https://github.com/jgthms/bulma-start))
 
-## Install
+## Usage
+
+**Install**
 
 `npm install`
 
-## Watch src files, build on save
+**Watch src files, build on save**
 
 `npm start`
 
-## Build for deploy
+**Build for deploy**
 
 `npm run deploy`
 
-## See all commands
+**See all commands**
 
 `npm run`
