@@ -38,7 +38,7 @@ nav {
           nav .navbar-menu a:not(.button) {
             padding: 0 1rem; } }
     nav .navbar-menu .navbar-item.active {
-      color: #fc5e32; }
+      color: #999; }
     nav .navbar-menu .buttons {
       justify-content: flex-end; }
       @media (min-width: 700px) {
@@ -197,6 +197,41 @@ footer {
 
 .recent-posts .button {
   margin-top: 1.5rem; }
+
+.our-team h2 {
+  text-align: center; }
+
+.our-team a,
+.our-team a:hover {
+  color: inherit; }
+
+.our-team .team-members {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center; }
+
+.our-team .member {
+  text-align: center;
+  margin: 1rem;
+  padding: 1rem 0;
+  width: calc(33% - 2rem);
+  box-shadow: 0.1rem 0.1rem 0.4rem 0 rgba(51, 51, 51, 0.15), 0 0 1rem rgba(51, 51, 51, 0.15);
+  border-radius: 0.5rem;
+  transition: all 200ms; }
+  .our-team .member img {
+    border-radius: 50%;
+    width: 75%; }
+  .our-team .member:hover {
+    transform: scale(1.1) rotate(-1deg);
+    color: #fc5e32; }
+
+.our-team .name {
+  font-family: "Aleo", serif;
+  font-size: 1.2rem;
+  font-weight: bold; }
+
+.our-team .role {
+  font-weight: bold; }
 
 /*! bulma.io v0.7.2 | MIT License | github.com/jgthms/bulma */
 @keyframes spinAround {
