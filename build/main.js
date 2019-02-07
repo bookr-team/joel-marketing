@@ -29,12 +29,10 @@ class Highlighter {
     this.initListeners();
   }
   initListeners() {
-    this.targets.forEach(t =>
-      t.addEventListener('mouseenter', e => {
-        this.currentTarget = e.target;
-        this.highlight();
-      })
-    );
+    this.targets.forEach(t => t.addEventListener('mouseenter', e => {
+      this.currentTarget = e.target;
+      this.highlight();
+    }));
     this.boundary.addEventListener('mouseleave', () => {
       if (this.highlighter) this.highlighter.style.width = 0;
     });
@@ -183,27 +181,22 @@ const hl = new Highlighter({
 
 // let's get some testimonials
 // we make a call to the backend and parse the response
-const ajaxResponse = [
-  {
-    name: 'Kate',
-    location: 'Seattle',
-    blurb: 'Bookr makes life worth living! 14/10 would recommend.',
-    imgUrl: 'images/profiles/01.jpg'
-  },
-  {
-    name: 'John',
-    location: 'Denver',
-    blurb:
-      'I use Bookr religiously. My friends are sick of hearing me rave about the service. Keep up the good work!',
-    imgUrl: 'images/profiles/02.jpg'
-  },
-  {
-    name: 'Elba',
-    location: 'Little Rock',
-    blurb: "I've never had so much fun reading book reviews. Thanks Bookr!",
-    imgUrl: 'images/profiles/03.jpg'
-  }
-];
+const ajaxResponse = [{
+  name: 'Kate',
+  location: 'Seattle',
+  blurb: 'Bookr makes life worth living! 14/10 would recommend.',
+  imgUrl: 'images/profiles/01.jpg'
+}, {
+  name: 'John',
+  location: 'Denver',
+  blurb: 'I use Bookr religiously. My friends are sick of hearing me rave about the service. Keep up the good work!',
+  imgUrl: 'images/profiles/02.jpg'
+}, {
+  name: 'Elba',
+  location: 'Little Rock',
+  blurb: "I've never had so much fun reading book reviews. Thanks Bookr!",
+  imgUrl: 'images/profiles/03.jpg'
+}];
 
 // we need some HTML for our testimonials
 function populateTestimonialTemplate(t) {
