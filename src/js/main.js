@@ -249,3 +249,60 @@ const slider = new AutomaticSlideShow({
   slidesContainerElSelector: '.testimonials-container',
   slideDelayMs: 6500
 });
+}
+
+// let's fetch some recent blog posts for our news page
+function initRecentPosts() {
+  // get some dummy data
+  const endpoint = 'https://my.api.mockaroo.com/blog-posts.json?key=23239c30';
+  const container = document.querySelector('.posts-container');
+
+  function getPostHtml(post) {
+    // LEARNING MOMENT - how to get human-friendly strings from a Date object
+    const date = new Date(post.date);
+    const year = date.getFullYear();
+    const month = date.toLocaleString('en-us', { month: 'long' });
+    // date object date is zero-based but our data is not
+    const day = date.getDate() + 1;
+    const weekday = date.toLocaleString('en-us', { weekday: 'long' });
+    return `
+      <div class="post content">
+        <div class="post-title title is-size-4">${post.title}</div>
+        <div class="post-byline subtitle is-size-6 is-italic">by ${
+          post.author
+        } on ${weekday}, ${month} ${day}, ${year}</div>
+        <div class="post-preview">${post.preview}</div>
+        <a class="button">Continue Reading</a>
+      </div>
+    `;
+  }
+
+  function createDomNodeFromString(string) {
+    return document.createRange().createContextualFragment(string);
+  }
+
+  function addNodesToDOM(nodesArray) {
+    nodesArray.forEach(n => container.append(n));
+  }
+
+  function parseResponse(posts) {
+    // LEARNING MOMENT - how to sort objects by a date string
+    const postsSortedByDate = posts.sort((p1, p2) => new Date(p2.date) - new Date(p1.date));
+    postNodes = postsSortedByDate.map(p => getPostHtml(p)).map(p => createDomNodeFromString(p));
+    addNodesToDOM(postNodes);
+  }
+
+  function handleError(error) {
+    console.error(error);
+    const errorMessage = `
+      <div class="notification error">There was an error loading recent posts.</div>
+    `;
+    container.append(createDomNodeFromString(errorMessage));
+  }
+
+  // LEARNING MOMENT - how to make a request with the new fetch API
+  fetch(endpoint)
+    .then(r => r.json())
+    .then(parseResponse)
+    .catch(handleError);
+}
