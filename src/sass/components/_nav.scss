@@ -30,6 +30,9 @@ nav {
         }
       }
     }
+    .navbar-item.active {
+      color: $bookr-orange;
+    }
     .buttons {
       justify-content: flex-end;
       @include from($navbar-breakpoint) {
