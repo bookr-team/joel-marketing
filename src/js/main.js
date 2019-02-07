@@ -76,10 +76,12 @@ class Highlighter {
       top: top + window.scrollY,
       left: targetCoords.left + window.scrollX
     };
-
+    const initialCoords = this.initialTarget.getBoundingClientRect();
+    const leftDelta = coords.left - initialCoords.left;
+    const topDelta = coords.top - initialCoords.top;
     this.highlighter.style.width = `${coords.width}px`;
     this.highlighter.style.height = `${coords.height}px`;
-    this.highlighter.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
+    this.highlighter.style.transform = `translate(${leftDelta}px, ${topDelta}px)`;
   }
 }
 
