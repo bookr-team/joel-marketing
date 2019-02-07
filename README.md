@@ -9,13 +9,13 @@
 
 `npm install`
 
-## Start dev server
+## Watch src files, build on save
 
 `npm start`
 
 ## Build for deploy
 
-`npm deploy`
+`npm run deploy`
 
 ## See all commands
 

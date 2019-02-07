@@ -15,6 +15,9 @@ $default-shadow: 0.1rem 0.1rem 0.4rem 0 rgba(#333, 0.15),
 // bulma vars
 $section-padding: 3rem 1.5rem 2rem;
 
+$link: $bookr-primary;
+$link-hover: $bookr-orange;
+
 $grey-dark: #333;
 $family-sans-serif: 'Open Sans', sans-serif;
 $family-secondary: 'Aleo', serif;
@@ -28,6 +31,6 @@ $widescreen-enabled: false;
 $fullhd-enabled: false;
 
 // navbar
-$navbar-breakpoint: 660px;
+$navbar-breakpoint: 700px;
 $navbar-height: 5rem;
 $navbar-item-hover-background-color: white;

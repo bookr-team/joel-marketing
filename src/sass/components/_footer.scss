@@ -2,12 +2,45 @@ footer {
   &.section {
     padding: 2rem 1.5rem 2rem;
   }
-  background: $bookr-grey;
+  background: url('../images/book-stack.jpg') center top / cover;
+  a {
+    color: inherit;
+  }
+  .social-links,
+  .contact-info,
+  .footer-logo {
+    padding-bottom: 1rem;
+  } 
   .footer-logo {
     height: 3.5rem;
   }
+  .social-links {
+    p {
+      line-height: 2em;
+    }
+  }
+  .newsletter-signup {
+    margin: 1rem 0 2rem;
+    label {
+      display: block;
+    }
+    .title,
+    p,
+    input {
+      margin-bottom: 0.5rem;
+      @include from('440px') {
+        width: 20rem;
+      }
+    }
+    input {
+      background: rgba(white, 0.65);
+      &:focus {
+        background: white;
+      }
+    }
+  }
   .copyright {
-    margin-top: 2rem;
+    margin-top: 1rem;
     font-size: 80%;
   }
 }

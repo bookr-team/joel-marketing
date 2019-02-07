@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bookr</title>
+    <title>Bookr - Your Source For All Things Textbook</title>
     <link
       href="https://fonts.googleapis.com/css?family=Aleo:400,400i,700|Open+Sans:700"
       rel="stylesheet"
@@ -32,13 +32,12 @@
             </span>
           </div>
           <div id="nav-menu" class="navbar-menu">
-            <div class="navbar-end">
-              <a href="#" class="navbar-item">Some Link</a>
+            <div class="navbar-end hover-effect-bound">
               <a href="#how-it-works" class="navbar-item">How it Works</a>
-              <a href="#" class="navbar-item">Blog</a>
-              <div class="buttons">
-                <a href="https://bookr.netlify.com/" class="button">Login</a>
-              </div>
+              <a href="#" class="navbar-item">About Us</a>
+            </div>
+            <div class="buttons">
+              <a href="https://bookr.netlify.com/" class="button">Login</a>
             </div>
           </div>
         </div>
@@ -52,9 +51,8 @@
             Your source for all things textbook.
           </h1>
           <div class="cta-div">
-            <a href="https://bookr.netlify.com/" class="button cta is-size-3"
-              >Sign Up</a
-            >
+            <a href="https://bookr.netlify.com/" class="button cta is-size-3">Sign Up</a>
+            <div class="free">(It's free!)</div>
           </div>
         </div>
       </div>
@@ -62,34 +60,41 @@
 
     <section id="how-it-works" class="how-it-works section">
       <div class="container">
-        <h1 class="title">How it works</h1>
+        <h1 class="title">How It Works</h1>
         <div class="columns is-desktop">
           <div class="column">
-            <div class="notification">
-              <h1 class="title is-size-4">Buy Textbooks</h1>
+            <div class="item">
+              <figure>
+                <img src="images/edit.svg" alt="Post reviews" />
+              </figure>
+              <h2 class="title is-size-4 is-centered">Read and Post Reviews</h2>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
-                debitis blanditiis, provident ab nemo voluptates.
+                The easiest and most convenient way to read and leave reviews for all your favorite
+                textbooks. Sort and filer too! It's the most fun you'll have all semester.
               </p>
             </div>
           </div>
           <div class="column">
-            <div class="notification">
-              <h1 class="title is-size-4">Review Books</h1>
+            <div class="item">
+              <figure>
+                <img src="images/usd-circle.svg" alt="Compare prices" />
+              </figure>
+              <h2 class="title is-size-4">Compare Prices</h2>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-                quisquam est, suscipit, sequi vitae tenetur omnis quis
-                praesentium alias qui quidem eligendi.
+                Find the best deals on all the hottest textbooks. It's amazingly useful and fun with
+                Bookr. You never have to wonder if you've missed a deal. 5 stars!
               </p>
             </div>
           </div>
           <div class="column">
-            <div class="notification">
-              <h1 class="title is-size-4">Compare Prices</h1>
+            <div class="item">
+              <figure>
+                <img src="images/map-marker-alt.svg" alt="Find deals" />
+              </figure>
+              <h2 class="title is-size-4">Where to Buy</h2>
               <p>
-                Lorem ipsum doslor sit amet consectetur adipisicing elit.
-                Possimus veniam atque quod laudantium a tempore deserunt error
-                voluptatem.
+                Locate all the books you need for class with our hassle-free Where to Buy®
+                functionality. Featuring millions of textbooks stores globally, at no cost to you.
               </p>
             </div>
           </div>
@@ -100,35 +105,83 @@
     <section class="featured-books section">
       <div class="container">
         <h1 class="title">Featured Books</h1>
-        <div class="notification">
-          {books here}
+        <div class="columns is-multiline">
+          <div class="column is-half-tablet is-one-third-desktop">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image">
+                  <img src="images/covers/01.jpg" alt="" />
+                </figure>
+              </div>
+              <div class="card-content">
+                <p class="title is-4">Practical Programming</p>
+                <p class="subtitle is-7">by Jennifer Campbell</p>
+                <div class="content">
+                  This book is for anyone who wants to understand computer programming. You'll code
+                  along with the book, writing programs to solve real-world problems as you learn
+                  the fundamentals of programming using Python 3.
+                </div>
+                <a href="#" class="button">Read Reviews</a>
+              </div>
+            </div>
+          </div>
+          <div class="column is-half-tablet is-one-third-desktop">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image">
+                  <img src="images/covers/02.jpg" alt="" />
+                </figure>
+              </div>
+              <div class="card-content">
+                <p class="title is-4">Discrete Mathematics and Its Applications</p>
+                <p class="subtitle is-7">by Kenneth Rosen</p>
+                <div class="content">
+                  Discrete Mathematics and Its Applications is intended for one or two term
+                  introductory Discrete Mathematics courses taken by students from a wide variety of
+                  majors, including Computer Science, Mathematics, and Engineering.
+                </div>
+                <a href="#" class="button">Read Reviews</a>
+              </div>
+            </div>
+          </div>
+          <div class="column is-half-tablet is-one-third-desktop">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image">
+                  <img src="images/covers/03.gif" alt="" />
+                </figure>
+              </div>
+              <div class="card-content">
+                <p class="title is-4">Linear Algebra and Probability for Computer Science</p>
+                <p class="subtitle is-7">by Earnest Davis</p>
+                <div class="content">
+                  Based on the author’s course at NYU, Linear Algebra and Probability for Computer
+                  Science Applications gives an introduction to two mathematical fields that are
+                  fundamental in many areas of computer science.
+                </div>
+                <a href="#" class="button">Read Reviews</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="section testimonials">
       <div class="container">
-        <h1 class="title">What people are saying</h1>
-        <div class="notification">
-          {testimonials slideshow here}
+        <h1 class="title">What People Are Saying</h1>
+        <div class="testimonials-component">
+          <div class="testimonials-container">
+            <!-- dynamically generated in main.js -->
+          </div>
         </div>
       </div>
     </section>
 
     <footer class="section">
       <div class="container">
-        <img
-          src="images/bookr-logotype-altbg.svg"
-          class="footer-logo"
-          alt="Bookr logo"
-        />
-        <p class="address">
-          921 Crescent Ct.<br />
-          San Ramon, CA 94582
-        </p>
-        <p class="email">hello@bookr.com</p>
-        <p class="phone">(800) 883-1943</p>
-        <div class="social">
+        <img src="images/bookr-logotype-altbg.svg" class="footer-logo" alt="Bookr logo" />
+        <div class="social-links">
           <p>
             <a href="#">
               <i class="fab fa-twitter"></i>
@@ -151,15 +204,23 @@
         <div class="newsletter-signup">
           <h2 class="title is-size-4">Get on our list!</h2>
           <p>
-            Subscribe to stay up-to-date with occasional news and special
-            offers. Unsubscribe at any time.
+            Subscribe to stay up-to-date with occasional news and special offers. Unsubscribe at any
+            time.
           </p>
           <form action="">
             <label for="">
               <input type="email" class="input" placeholder="you@yours.com" />
             </label>
-            <button class="button">Subscribe</button>
+            <a class="button">Subscribe</a>
           </form>
+        </div>
+        <div class="contact-info">
+          <p class="address">
+            921 Crescent Ct.<br />
+            San Ramon, CA 94582
+          </p>
+          <p class="email">hello@bookr.com</p>
+          <p class="phone">(800) 883-1943</p>
         </div>
         <p class="copyright">
           Copyright 2019 Bookr, Inc.

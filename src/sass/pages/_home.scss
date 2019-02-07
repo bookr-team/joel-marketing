@@ -1,12 +1,12 @@
 .hero {
-  background: $primary-gradient;
+  background: url('../images/hero-bg.png') center / cover;
   text-align: center;
   .title {
     color: white;
   }
   .button.cta {
     margin-top: 2rem;
-    background: rgba(#333, 0.5);
+    background: rgba(#333, 0.8);
     border: none;
     padding: 1rem 3rem;
     color: white;
@@ -15,5 +15,31 @@
     &:hover {
       transform: scale(1.06);
     }
+  }
+  .free {
+    color: white;
+    padding-top: 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+}
+
+.how-it-works {
+  .item {
+    padding: 1.25rem;
+    background: $grey-gradient;
+    box-shadow: $default-shadow;
+    width: 100%;
+    border-radius: 0.5rem;
+  }
+  h2 {
+    text-align: center;
+  }
+  figure {
+    text-align: center;
+    img {
+      height: 3.5rem;
+    }
+    margin: 1rem 0;
   }
 }

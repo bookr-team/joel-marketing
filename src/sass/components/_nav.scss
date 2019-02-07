@@ -53,20 +53,6 @@ nav {
     height: 3.5rem;
     max-height: none;
   }
-  &:hover {
-    background-color: inherit;
-  }
-}
-
-.menu-item-highlighter {
-  transition: all 200ms;
-  background: $bookr-orange;
-  position: absolute;
-  z-index: 50;
-  display: block;
-  top: 0;
-  left: 0;
-  pointer-events: none;
 }
 
 @include from($navbar-breakpoint) {
