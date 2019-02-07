@@ -1,6 +1,8 @@
-// TODO init highlighter at first hover element with positionInitial()
 // hi there!
 // let's define some component classes
+// this bad boy was a DOOZY!
+// TODO use x scaling to shrink highlighter from center, https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scale
+// instead of transitioning the width, transition scale-x from 1 to 0
 class Highlighter {
   /* ------- Usage ---------------------------------------
       - Must pass a config variable to the constructor
@@ -19,9 +21,9 @@ class Highlighter {
   constructor(config) {
     this.boundary = document.querySelector(config.boundarySelector);
     this.targets = document.querySelectorAll(config.targetsSelector);
-    this.highlighterHeight = config.heightPx || 'cover';
     this.highlighterOffset = config.offsetPx || 0;
-    this.highlighterColor = config.color || 'rgba(255, 165, 0, 0.5)';
+    this.highlighterColor = config.color || 'rgba(255, 255, 0, 0.5)';
+    this.highlighterHeight = config.heightPx || 'cover';
     this.transitionMs = config.transitionMs || 200;
     this.windowMinWidth = config.windowMinWidth || 0;
     this.firstHover = true;
@@ -38,14 +40,18 @@ class Highlighter {
     });
   }
   initHighlighter() {
+    this.initialTarget = this.currentTarget;
+    const initialCoords = this.initialTarget.getBoundingClientRect();
+
     const highlighter = document.createElement('div');
     const styles = `
         transition: all ${this.transitionMs}ms;
         background: ${this.highlighterColor};
         position: absolute;
         z-index: 1000;
-        top: 0;
-        left: 0;
+        top: ${this.calcTopValue(initialCoords) - initialCoords.top}px;
+        left: ${initialCoords.left}px;
+        width: 0;
         pointer-events: none;
       `;
 
@@ -53,31 +59,40 @@ class Highlighter {
     document.body.append(highlighter);
     this.highlighter = highlighter;
   }
-  // positionInitial() {}
+  calcHighlighterHeight() {
+    const heightCfg = this.highlighterHeight;
+    return heightCfg === 'cover' ? this.currentTarget.getBoundingClientRect().height : heightCfg;
+  }
+  calcTopValue(targetCoords) {
+    const height = this.calcHighlighterHeight();
+    return targetCoords.top + (targetCoords.height - height - this.highlighterOffset);
+  }
   highlight() {
     // on mobile, don't bother with hover effects
     if (this.windowMinWidth > window.innerWidth) return;
 
     if (this.firstHover) {
       this.initHighlighter();
-      // this.positionInitial();
       this.firstHover = false;
     }
 
     const targetCoords = this.currentTarget.getBoundingClientRect();
-    const heightConfig = this.highlighterHeight;
-    const height = heightConfig == 'cover' ? targetCoords.height : heightConfig;
-    const top = targetCoords.top + (targetCoords.height - height - this.highlighterOffset);
     const coords = {
       width: targetCoords.width,
-      height: height,
-      top: top + window.scrollY,
+      height: this.calcHighlighterHeight(),
+      top: this.calcTopValue(targetCoords) + window.scrollY,
       left: targetCoords.left + window.scrollX
     };
 
+    // compensate for initial positioning
+    const initialCoords = this.initialTarget.getBoundingClientRect();
+    const leftDelta = coords.left - initialCoords.left;
+    // const topDelta = coords.top - initialCoords.top;  // this was the problem
+    const topDelta = 0 - initialCoords.top; // THIS!!! this line took 3 house to debug
+
     this.highlighter.style.width = `${coords.width}px`;
     this.highlighter.style.height = `${coords.height}px`;
-    this.highlighter.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
+    this.highlighter.style.transform = `translate(${leftDelta}px, ${topDelta}px)`; // this line is not the issue
   }
 }
 
