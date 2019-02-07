@@ -90,7 +90,7 @@ class Highlighter {
     const initialCoords = this.initialTarget.getBoundingClientRect();
     const leftDelta = coords.left - initialCoords.left;
     // const topDelta = coords.top - initialCoords.top;  // this was the problem
-    const topDelta = 0 - initialCoords.top; // THIS!!! this line took 3 house to debug
+    const topDelta = 0 - initialCoords.top; // THIS!!! this line took 3 hours to debug
 
     this.highlighter.style.width = `${coords.width}px`;
     this.highlighter.style.height = `${coords.height}px`;
