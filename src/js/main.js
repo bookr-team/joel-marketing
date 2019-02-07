@@ -3,7 +3,6 @@
 // this bad boy was a DOOZY!
 // TODO use x scaling to shrink highlighter from center, https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scale
 // instead of transitioning the width, transition scale-x from 1 to 0
-// TODO reset offsets on page resize
 class Highlighter {
   /* ------- Usage ---------------------------------------
       - Must pass a config variable to the constructor
@@ -40,6 +39,9 @@ class Highlighter {
     );
     this.boundary.addEventListener('mouseleave', () => {
       if (this.highlighter) this.highlighter.style.width = 0;
+    });
+    window.addEventListener('resize', () => {
+      this.firstHover = true;
     });
   }
   initHighlighter() {
