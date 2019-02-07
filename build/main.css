@@ -37,6 +37,8 @@ nav {
         @media (min-width: 700px) {
           nav .navbar-menu a:not(.button) {
             padding: 0 1rem; } }
+    nav .navbar-menu .navbar-item.active {
+      color: #fc5e32; }
     nav .navbar-menu .buttons {
       justify-content: flex-end; }
       @media (min-width: 700px) {
@@ -189,6 +191,12 @@ footer {
   margin: 1rem 0; }
   .how-it-works figure img {
     height: 3.5rem; }
+
+.recent-posts .post {
+  margin: 2rem 0; }
+
+.recent-posts .button {
+  margin-top: 1.5rem; }
 
 /*! bulma.io v0.7.2 | MIT License | github.com/jgthms/bulma */
 @keyframes spinAround {
