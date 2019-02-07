@@ -57,14 +57,12 @@ class Highlighter {
     document.body.append(highlighter);
     this.highlighter = highlighter;
   }
-  // positionInitial() {}
   highlight() {
     // on mobile, don't bother with hover effects
     if (this.windowMinWidth > window.innerWidth) return;
 
     if (this.firstHover) {
       this.initHighlighter();
-      // this.positionInitial();
       this.firstHover = false;
     }
 
