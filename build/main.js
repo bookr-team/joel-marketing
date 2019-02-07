@@ -3,6 +3,7 @@
 // this bad boy was a DOOZY!
 // TODO use x scaling to shrink highlighter from center, https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scale
 // instead of transitioning the width, transition scale-x from 1 to 0
+// TODO reset offsets on page resize
 class Highlighter {
   /* ------- Usage ---------------------------------------
       - Must pass a config variable to the constructor
@@ -254,6 +255,11 @@ function initRecentPosts() {
   // get some dummy data
   const endpoint = 'https://my.api.mockaroo.com/blog-posts.json?key=23239c30';
   const container = document.querySelector('.posts-container');
+  const loadingStatus = document.querySelector('.content-loading');
+
+  function dismissLoadingStatus() {
+    loadingStatus.style.display = 'none';
+  }
 
   function getPostHtml(post) {
     // LEARNING MOMENT - how to get human-friendly strings from a Date object
@@ -268,7 +274,7 @@ function initRecentPosts() {
         <div class="post-title title is-size-4">${post.title}</div>
         <div class="post-byline subtitle is-size-6 is-italic">by ${post.author} on ${weekday}, ${month} ${day}, ${year}</div>
         <div class="post-preview">${post.preview}</div>
-        <a class="button">Continue Reading</a>
+        <a href="#" class="button">Continue Reading</a>
       </div>
     `;
   }
@@ -285,6 +291,7 @@ function initRecentPosts() {
     // LEARNING MOMENT - how to sort objects by a date string
     const postsSortedByDate = posts.sort((p1, p2) => new Date(p2.date) - new Date(p1.date));
     postNodes = postsSortedByDate.map(p => getPostHtml(p)).map(p => createDomNodeFromString(p));
+    dismissLoadingStatus();
     addNodesToDOM(postNodes);
   }
 
