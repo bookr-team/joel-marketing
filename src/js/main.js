@@ -18,9 +18,9 @@ class Highlighter {
   constructor(config) {
     this.boundary = document.querySelector(config.boundarySelector);
     this.targets = document.querySelectorAll(config.targetsSelector);
-    this.highlighterHeight = config.heightPx || 'cover';
     this.highlighterOffset = config.offsetPx || 0;
-    this.highlighterColor = config.color || 'rgba(255, 165, 0, 0.5)';
+    this.highlighterColor = config.color || 'rgba(255, 255, 0, 0.5)';
+    this.highlighterHeight = config.heightPx || 'cover';
     this.transitionMs = config.transitionMs || 200;
     this.windowMinWidth = config.windowMinWidth || 0;
     this.firstHover = true;
