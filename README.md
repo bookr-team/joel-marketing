@@ -1,5 +1,7 @@
 # Bookr marketing site
 
+[Deployed here](https://joel-bartlett-bookr.netlify.com/)
+
 ## Some Things I learned
 
 - This was my first time using Bulma. I had to familiarize myself with its patterns and conventions. I often wondered if it's worth the trouble. I find the resultant HTML, bloated with utility classes and `div` tags, to be fundamentally unsatisfying. I suppose such frameworks would be very useful for rapid prototyping if one were prepared to invest the time and effort to learn them thoroughly. I like the idea of building and using my own minimal library (with a basic grid and breakpoint helpers, say) and adding to it incrementally to suit the needs of a project.
